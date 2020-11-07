@@ -1,0 +1,78 @@
+X23 = np.array([5,8,3,1,7,5,0])
+Y4 = np.array([6,4,0,11,5])
+Z = np.intersect1d(X23, Y4) #arrayler arasinda ortak elemanlari verir
+print(Z)
+print(np.setdiff1d(X23, Y4)) #x23'te olup Y4'te olmayanlari getirir
+print(np.union1d(X23, Y4))  #iki arrayin birlesim kumesini verdi
+print(np.in1d(X23, Y4))  #X23'te olup Y4'te olmayanları true-false olarak calistirir
+print(np.unique(X23))   #array icinde tekrar etmeden verileri getirir
+
+
+X24 = np.random.randint(1, 10, size=(10,))
+print(X24)
+print(np.sort(X24)) #siralama yaptik
+
+X25 = np.random.randint(1, 10, size=(10,))
+Y5 = np.random.randint(1, 10, size=(10,))
+print(X25)
+print(Y5)
+print(np.add(X25,Y5))   #iki arrayi add fonksiyonu ile topladik
+print(np.subtract(X25,Y5)) #yazim sirasina göre iki arrayin farki alindi
+print(np.multiply(X25,Y5))  #carpma islemi
+print(np.divide(X25,Y5))     #bolme islemi
+print(np.sqrt(X25))     #X25 elemanlarinin kokunu aldik
+print(np.power(X25,3))   #X25'in 3. kuvveti
+print(np.exp(X25))    #dogal logaritma
+
+#application
+Q1 = "10x10 boyutlarinda bir birim matris olusturunuz"
+
+A1 = np.identity(10)
+print(A1)
+
+Q2 = "73 135 degerlerini dahil edecek sekilde bir matris olusturun ve aralarindaki tek sayilari gosterin"
+
+A2 = np.arange(73, 136, 2)
+print(A2)
+
+Q3 = "1 ile 100 arasinda degerlerden olusan ve rastgele 36 eleman iceren 6x6'lik matris olusturun"
+
+A3 = np.random.randint(1, 100, 36).reshape(6,6)
+print(A3)
+
+''' #Q4 = "[[0 1 2  3  4  5  6]
+       [7 8 9 10 11 12 13] 
+       [14 15 16 17 18 19 20]
+       [21 22 23 24 25 26 27]
+       [28 29 30 31 32 33 34]
+       [35 36 37 38 39 40 41]
+       [42 43 44 45 46 47 48]]  matrisinden [[32 33 34]
+                                             [39 40 41]] matrisi elde edin" '''
+
+A4 = np.arange(49).reshape(7,7)
+print(A4)
+
+A4A = A4[4:6, 4:7]
+print(A4A)
+
+Q5 = "Elemanlari 1 ve 17 arasindaki sayilardan olusan kare matristeki degerleri boolean index alarak uzende 2x4 olarak yaziniz"
+
+A5 = np.arange(1,17).reshape(4,4)
+print(A5)
+
+A5A = A5[A5%2==0].reshape(2,4)
+print(A5A)
+
+''' Q6 = "Bir yayınevi veri bilimi uzerine cikan bir kitap icin kampanya baslatiyor ve ogrencilere 50, ogrenci olmayanlara 100 tl olarak ucretlendirme yapiyor. ilk hafta 
+bu kitaptan elde edilen gelirin 7000 tl oldugu bilindigine gore kac ogrenci kitabi satin almistir? - toplamda 100 adet siparis verilmistir" '''
+#x1 + x2 = 100
+#50x1 + 100x2 = 700
+
+A6 = np.array([[1,1], [50,100]])
+print(A6)
+
+A6A = np.array([100, 7000])
+print(A6A)
+
+A6AA = np.linalg.solve(A6, A6A)
+print(A6AA)
